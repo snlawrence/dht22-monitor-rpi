@@ -1,0 +1,13 @@
+[project]
+name = "dht22-monitor"
+version = "0.1.0"
+description = "Monitor temperature and humidity using a raspberry pi with a dht22 sensor and deploy in Docker"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "adafruit-circuitpython-dht>=4.0.7",
+    "paho-mqtt>=2.1.0",
+    "python-dotenv>=1.0.1",
+    "rpi-gpio>=0.7.1",
+]
+
