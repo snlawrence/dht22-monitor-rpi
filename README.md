@@ -5,11 +5,25 @@ Publish temperature and humidity to a MQTT broker using a DHT22 sensor on a Rasp
 ## Quick start
 
 ### Prerequisites
+The following prerequisites are required if running locally (ie. not in the docker container).
+If you plan to run only in docker, then skip these prerequisites and go straight to setting up the `.env` file.
 
-The following dependencies are required if running locally (ie. not in the docker container).
-If you plan to run only in docker, then skip these prerequisites.
+#### Dependencies
 
-`apt-get install libgpiod2`
+Install: 
+
+```bash
+apt-get install libgpiod2
+```
+
+#### uv
+
+[uv](https://docs.astral.sh/uv/) is used for package management.
+Install uv with: 
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 ### Environment
 
