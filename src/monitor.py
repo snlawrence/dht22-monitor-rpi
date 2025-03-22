@@ -8,6 +8,7 @@ import os
 from dotenv import load_dotenv
 import logging
 
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
@@ -26,7 +27,7 @@ try:
     SENSOR_NAME = os.getenv("SENSOR_NAME")
     INTERVAL_SECONDS = int(os.getenv("INTERVAL_SECONDS", 300))  # 5 minutes default
     GPIO_PIN = int(os.getenv("GPIO_PIN"))
-except err:
+except Exception as err:
     logger.error("Error loading environmental variables")
     logger.info(err)
 
@@ -58,8 +59,10 @@ class DHT22Monitor:
             
         except RuntimeError as error:
             logger.error(f"Error reading sensor: {error}")
+            return
         except Exception as error:
             logger.error(f"Other error: {error}")
+            return
             
         try:
             info = self.client.publish(MQTT_TOPIC, json.dumps(data))

@@ -3,6 +3,7 @@ version: '3'
 services:
   dht22-monitor:
     build: .
+    privileged: true # This is required for GPIO access
     devices:
       - "/dev/gpiomem:/dev/gpiomem"
       - "/dev/gpiochip0:/dev/gpiochip0"
